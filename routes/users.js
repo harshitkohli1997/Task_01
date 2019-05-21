@@ -97,7 +97,7 @@ router.post('/register', (req, res) => {
 
 // Logout User
 router.get('/logout', (req, res) => {
-  User.update({email:req.user.email},
+  User.updateOne({email:req.user.email},
     {
       $set:
       {
