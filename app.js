@@ -81,10 +81,6 @@ app.get('/', (req, res) => {
 });
 
 
-app.get('/test', (req,res) => {
-    const date = new Date();
-    console.log(date.now);
-})
 
 
 
