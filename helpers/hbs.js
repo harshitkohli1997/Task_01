@@ -7,9 +7,6 @@ module.exports = {
        var days = parseInt(diff.asDays()); 
         var minutes = parseInt(diff.asMinutes());
 
-
-
-console.log(minutes)
 if(minutes > 1)
 {
         return moment(date).format(format);

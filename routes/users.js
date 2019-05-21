@@ -30,7 +30,7 @@ router.post('/login', (req, res, next) => {
 
 router.get('/home', ensureAuthenticated,(req,res) => {
 
-  User.find({})
+  User.find({ email:{ $ne:req.user.email}})
   .then(user => {
     res.render('home',{
       users:user
