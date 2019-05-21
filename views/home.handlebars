@@ -1,8 +1,10 @@
+
 <div class="jumbotron text-center">
  <ul>
   {{#each users}}
-    <li>{{email}} hey {{date}}</li>
+    <li>{{email}} hey {{formatDate date 'YYYY/MM/DD h:mm:ss a'}}</li>
     
   {{/each}}
  </ul>
 </div>
+

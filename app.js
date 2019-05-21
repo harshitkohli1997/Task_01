@@ -25,8 +25,20 @@ mongoose.connect('mongodb://harshit:scooby1234@ds133556.mlab.com:33556/assessmen
   .then(() => console.log('MongoDB Connected...'))
   .catch(err => console.log(err));
 
+  const {
+    formatDate,
+    ifcond
+  } = require('./helpers/hbs')
 // Handlebars Middleware
 app.engine('handlebars', exphbs({
+
+    helpers: { // to help the handlebars in formating
+       
+        formatDate: formatDate,
+        ifcond:ifcond
+        
+      },
+
   defaultLayout: 'main'
 }));
 app.set('view engine', 'handlebars');
