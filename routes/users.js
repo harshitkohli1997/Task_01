@@ -29,7 +29,17 @@ router.post('/login', (req, res, next) => {
 
 
 router.get('/home', ensureAuthenticated,(req,res) => {
-  res.render('home');
+
+  User.find({})
+  .then(user => {
+    res.render('home',{
+      users:user
+    });
+  })
+  .catch(e => {
+    console.log(e);
+  })
+ 
 })
 
 // Register Form POST
