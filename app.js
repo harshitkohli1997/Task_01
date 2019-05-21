@@ -15,11 +15,12 @@ const users = require('./routes/users');
 
 // Passport Config
 require('./config/passport')(passport);
+const keys = require('./config/keys')
 
 // Map global promise - get rid of warning
 mongoose.Promise = global.Promise;
 // Connect to mongoose
-mongoose.connect('mongodb://harshit:scooby1234@ds133556.mlab.com:33556/assessment',{
+mongoose.connect(keys.MongoUrl,{
      useNewUrlParser: true 
 })
   .then(() => console.log('MongoDB Connected...'))
@@ -88,7 +89,7 @@ app.get('/', (req, res) => {
 
 app.use('/users', users);
 
-const port = 3000;
+const port = 3000 || process.env.PORT;
 
 app.listen(port, () =>{
   console.log(`Server started on port ${port}`);
