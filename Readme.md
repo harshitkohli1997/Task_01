@@ -1,6 +1,15 @@
 # Assignment
 
-Application based on basic CRUD operations and powered by Nodejs, MongoDb ,Express and Handlebars
+Application based on basic CRUD operations and powered by Nodejs, MongoDb ,Express and Handlebars.
+
+# Live app
+
+https://radiant-crag-20689.herokuapp.com/
+
+dummy user
+
+email: test@test.com
+password: 12345
 
 # Running Locally
 
