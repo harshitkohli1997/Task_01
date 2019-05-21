@@ -10,8 +10,7 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-// Load routes
-const ideas = require('./routes/ideas');
+
 const users = require('./routes/users');
 
 // Passport Config
@@ -66,20 +65,13 @@ app.use(function(req, res, next){
 
 // Index Route
 app.get('/', (req, res) => {
-  const title = 'Welcome';
-  res.render('index', {
-    title: title
-  });
-});
-
-// About Route
-app.get('/about', (req, res) => {
-  res.render('about');
+  res.render('users/login');
 });
 
 
-// Use routes
-app.use('/ideas', ideas);
+
+
+
 app.use('/users', users);
 
 const port = 3000;

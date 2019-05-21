@@ -1,37 +1,30 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-3">
+<nav class="navbar navbar-expand-sm navbar-dark bg-danger mb-3">
   <div class="container">
-    <a class="navbar-brand" href="/">Diary</a>
+    <a class="navbar-brand" href="/"><b style="color: white;">Assignment</b></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
       aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
+          {{#if user}}
+        
+        {{else}}
         <li class="nav-item">
-          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link btn " style="background-color:#494949;box-shadow: 2px 2px 2px; color:black;" href="/"><b style="color:white;">Login</b></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/about">About</a>
-        </li>
+        {{/if}}
       </ul>
       <ul class="navbar-nav ml-auto">
         {{#if user}}
-          <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink">Ideas</a>
-            <div class="dropdown-menu">
-              <a href="/ideas" class="dropdown-item">MyIdeas</a>
-              <a href="/ideas/add" class="dropdown-item">Add Idea</a>
-            </div>
-          </li>
+         
           <li class="nav-item">
-            <a href="/users/logout" class="nav-link">Logout</a>
+            <a href="/users/logout" class="nav-link btn" style="background-color:#494949;box-shadow: 2px 2px 2px; color:black;"><b style="color: white;">Logout</b></a>
           </li>
         {{else}}
+          
           <li class="nav-item">
-            <a href="/users/login" class="nav-link">Login</a>
-          </li>
-          <li class="nav-item">
-            <a href="/users/register" class="nav-link">Register</a>
+            <a href="/users/register" class="nav-link btn "  style="background-color:#494949;box-shadow: 2px 2px 2px; color:black;"><b style="color: white;">Signup</b></a>
           </li>
         {{/if}}
       </ul>

@@ -4,14 +4,14 @@ const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const router = express.Router();
 
+const { ensureAuthenticated } = require('../helpers/auth')
+
 // Load User Model
 require('../models/User');
 const User = mongoose.model('users');
 
 // User Login Route
-router.get('/login', (req, res) => {
-  res.render('users/login');
-});
+
 
 // User Register Route
 router.get('/register', (req, res) => {
@@ -21,11 +21,16 @@ router.get('/register', (req, res) => {
 // Login Form POST
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', {
-    successRedirect:'/ideas',
-    failureRedirect: '/users/login',
+    successRedirect:'/users/home',
+    failureRedirect: '/',
     failureFlash: true
   })(req, res, next);
 });
+
+
+router.get('/home', ensureAuthenticated,(req,res) => {
+  res.render('home');
+})
 
 // Register Form POST
 router.post('/register', (req, res) => {
@@ -67,7 +72,7 @@ router.post('/register', (req, res) => {
               newUser.save()
                 .then(user => {
                   req.flash('success_msg', 'You are now registered and can log in');
-                  res.redirect('/users/login');
+                  res.redirect('/');
                 })
                 .catch(err => {
                   console.log(err);
@@ -84,7 +89,7 @@ router.post('/register', (req, res) => {
 router.get('/logout', (req, res) => {
   req.logout();
   req.flash('success_msg', 'You are logged out');
-  res.redirect('/users/login');
+  res.redirect('/');
 });
 
 module.exports = router;
