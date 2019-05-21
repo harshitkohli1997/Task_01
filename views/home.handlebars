@@ -1,10 +1,19 @@
 
-<div class="jumbotron text-center">
- <ul>
+
   {{#each users}}
-    <li>{{email}} hey {{formatDate date 'YYYY/MM/DD h:mm:ss a'}}</li>
+  <div class="card" style="width: 90%;">
+  <div class="card-body">
+    <h5 class="card-title">Name : {{name}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Email : {{email}}</h6>
+    
+    <h6 class="card-subtitle mb-2 text-muted">Last seen: {{formatDate date 'YYYY-MM-DD h:mm:ss a'}}</h6>
+    
+  </div>
+</div>
+<br>
+          
+   
     
   {{/each}}
- </ul>
-</div>
+ 
 
