@@ -16,7 +16,7 @@ password: 12345
 Make sure you have Node.js  installed
 
 ```
-git clone https://github.com/harshitkohli1997/Assignment.git
+git clone https://github.com/harshitkohli1997/Task_01.git
 cd Task_01
 npm install
 npm start
